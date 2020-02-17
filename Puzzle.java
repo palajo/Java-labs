@@ -8,6 +8,8 @@ package ua.lviv.iot.first.lab;
 */
 public class Puzzle {
 
+	private static String difficulty;
+
 	/* Поля з таблички */
 	private String description;
 	private int quanitity;
@@ -25,6 +27,11 @@ public class Puzzle {
 	protected String vendor;
 	protected int guarantee;
 
+	
+	/* Пустий конструктор */
+	public Puzzle() {
+	
+	}
 	/* Конструктор */
 	public Puzzle(String description, int quanitity, int widthofbox, int heightofbox, String sex, String theme,
 			String vendor, int guarantee) {
@@ -37,7 +44,12 @@ public class Puzzle {
 		this.vendor = vendor;
 		this.guarantee = guarantee;
 	}
-
+	
+	/* Конструктор з першими 5 полями */
+	public Puzzle(String description, int quanitity, int widthofbox, int heightofbox, String sex) {
+		this(description, quanitity, widthofbox, heightofbox, sex, null, null, 0);
+	}	
+	
 	/* Конструктор з першими 4 полями */
 	public Puzzle(String description, int quanitity, int widthofbox, int heightofbox) {
 		this(description, quanitity, widthofbox, heightofbox, null, null, null, 0);
@@ -114,12 +126,15 @@ public class Puzzle {
 	public void setGuarantee(int guarantee) {
 		this.guarantee = guarantee;
 	}
+	public static void setDifficulty(String difficulty) {
+		Puzzle.difficulty = difficulty;
+	}
 
 	@Override
 	public String toString() {
 		return "Puzzle [description=" + description + ", quanitity=" + quanitity + ", widthofbox=" + widthofbox
 				+ ", heightofbox=" + heightofbox + ", sex=" + sex + ", theme=" + theme + ", vendor=" + vendor
-				+ ", guarantee=" + guarantee + "]";
+				+ ", guarantee=" + guarantee + ", difficulty=" + Puzzle.difficulty + "]";
 	}
 
 }
